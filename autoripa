@@ -2198,6 +2198,7 @@ spawn(function()
         end
     end)
 end)
+
 Main:Seperator("Cake Farm")
 
 Main:Toggle("Auto Farm Cake Prince", _G.AutoDoughtBoss, "Auto Farm + Kill Cake Prince", function(value)
@@ -2332,6 +2333,33 @@ end)
 Main:Toggle("Auto Kill Dough King", _G.Autodoughking, false, function(value)
     _G.Autodoughking = value
     StopTween(_G.Autodoughking)
+end)
+
+spawn(function()
+    while wait() do
+        if _G.Autodoughking and World3 then
+            pcall(function()
+                if game:GetService("Workspace").Enemies:FindFirstChild("Dough King") then
+                    for i, v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if v.Name == "Dough King" then
+                            if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                repeat task.wait(_G.FastAttackDelay)
+                                    AutoHaki()
+                                    EquipWeapon(_G.SelectWeapon)
+                                    v.HumanoidRootPart.CanCollide = false
+                                    v.Humanoid.WalkSpeed = 0
+                                    v.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
+                                    topos(v.HumanoidRootPart.CFrame * Pos)
+                                    AttackNoCD()
+                                -- sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
+                                until not _G.Autodoughking or not v.Parent or v.Humanoid.Health <= 0
+                            end
+                        end
+                    end
+                end
+            end)
+        end
+    end
 end)
 -- local Client = game.Players.LocalPlayer
 -- local STOP = require(Client.PlayerScripts.CombatFramework.Particle)
