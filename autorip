@@ -2156,7 +2156,7 @@ end)
 
 Main:Seperator("Rip_Indra")
 
-Main:Toggle("Auto Kill Rip_Indra", _G.AutoDarkDagger, true, function(value)
+Main:Toggle("Auto Kill Rip_Indra", true, "Auto Kill Rip_Indra", function(value)
     _G.AutoDarkDagger = value
     StopTween(_G.AutoDarkDagger)
 end)
