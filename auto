@@ -2519,8 +2519,8 @@ spawn(function()
     end
 end)
 
-local Update = loadstring(Game:HttpGet "https://roblox.relzscript.xyz/source/relzhub/library/pc.lua")()
-local Alert = loadstring(Game:HttpGet "https://roblox.relzscript.xyz/source/relzhub/library/alert.lua")()
+local Update = loadstring(Game:HttpGet"https://roblox.relzscript.xyz/source/relzhub/library/pc.lua")()
+local OrionLib = loadstring(Game:HttpGet"https://roblox.relzscript.xyz/source/relzhub/library/alert.lua")()
 
 -------------Tab-----------------------
 
